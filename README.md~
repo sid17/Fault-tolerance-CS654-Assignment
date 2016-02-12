@@ -14,17 +14,13 @@ twisted    [sudo pip install twisted] <br />
 
 
 # Running Instructions
-
-1. ping-echo: the machine running the client continuously pings the machine with the specified IP address at a predefined time interval. It returns positive resposnse in case the ping was successful else prints an error message. The given functionality uses the pre-defined system command 'ping'. The client is built upon twisted (python based network module) and schedules an event at specific interval of time to provide the desired functionality.
+ping-echo: the machine running the client continuously pings the machine with the specified IP address at a predefined time interval. It returns positive resposnse in case the ping was successful else prints an error message. The given functionality uses the pre-defined system command 'ping'. The client is built upon twisted (python based network module) and schedules an event at specific interval of time to provide the desired functionality.
 
 Usage:  python client.py host:port --job ping <br />
 	where host refers to the host for the machine to ping and any random valid port for the port. (Note: The choice of the port does not 		matter since ping does not require a port. Since the given client also provides an option to check heartbeat, we sticked to the given 		format)
 <br />
-
-2. heartbeat: machine A sends a heartbeat to machine B at predefined interval and machine B continuously listens the heartbeat to detect fault in machine B. If a process id is pre-specified then machine A send the heartbeat for this process else it sends the heartbeat for the VM in general.
-
+heartbeat: machine A sends a heartbeat to machine B at predefined interval and machine B continuously listens the heartbeat to detect fault in machine B. If a process id is pre-specified then machine A send the heartbeat for this process else it sends the heartbeat for the VM in general.
 <br />
-
 Usage: <br />
 Machine B: <br />
        python client.py host:port --job hb --pid 1234 (if pid is known) <br />
@@ -38,11 +34,10 @@ Machine A: <br />
 	the port and iface are optional arguements <br />
 	default port is a random port availabale to the process <br />
 	default IP adress for the server is 127.0.0.1 [localhost] <br />
-
-
-To run both the utilities simultaneously at the client, 
-	Usage:
-	python client.py host:port --job all --pid 1234
-	python client.py host:port --job all --pid chrome
+<br />
+To run both the utilities simultaneously at the client,  <br />
+	Usage: <br />
+	python client.py host:port --job all --pid 1234 <br />
+	python client.py host:port --job all --pid chrome <br />
 	(Note pid is an optional field)
 	
